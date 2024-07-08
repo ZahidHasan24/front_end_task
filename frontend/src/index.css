@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+[data-theme="light"] {
+  --tab: #171717;
+  --tab-text-color: #ececec;
+  --chat-bubble-bg: #f4f4f4;
+  --sidebar-item: #1f29371a;
+}
+
+[data-theme="dark"] {
+  --tab: #f9f9f9;
+  --tab-text-color: #0d0d0d;
+  --chat-bubble-bg: #2f2f2f;
+  --sidebar-item: #a6adba1a;
+}
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@layer utilities {
+  .bg-tab {
+    background-color: var(--tab);
+  }
+  .tab-text-color {
+    color: var(--tab-text-color);
+  }
+  .chat-bubble-bg {
+    background-color: var(--chat-bubble-bg);
+  }
+  .sidebar-active {
+    background-color: var(--sidebar-item);
+  }
+  .send-btn {
+    background-color: var(--tab);
+    color: white;
+  }
+}
+
+@layer components {
+  .tabs-boxed .tab-active {
+    @apply bg-tab bg-opacity-50 tab-text-color !important;
+  }
+  .chat-bubble {
+    @apply chat-bubble-bg;
+  }
+}
+
+::-webkit-scrollbar {
+  @apply w-1 bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-light-grey dark:bg-dark-grey rounded-xl;
+}

@@ -1,0 +1,23 @@
+version: '1.0'
+
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      - ENV_FILE=.env
+    volumes:
+      - ./backend:/app
+  frontend:
+    
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.development
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app 
+      - /app/node_modules
+    command: npm run dev -- --host

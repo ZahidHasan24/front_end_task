@@ -1,26 +1,97 @@
+# Project Setup
 
-# Optimizely Take-Home Assignment
-Dear candidate, congratulations on reaching this stage in your recruitment journey with Optimizely!
+## Features
 
-In this repository, you will find the "backend" code for two AI-powered assistants (chatbots): Grumpy and Poet. 
-To begin, try to launch them and have a quick chat to understand what they do. You will also be provided with a dedicated API key to access the OpenAI API.
+- **Dual AI Assistants:** Interact with two different AI assistants.
+- **Copy Responses:** Easily copy AI-generated responses.
+- **Text-to-Speech:** Convert text responses to audio.
+- **Feedback System:** Provide feedback on responses.
+- **User Authentication:** Secure authentication system.
+- **Persistent Chat:** Save chat history to local storage.
+- **Contextual Conversations:** Maintain chat context for better interactions.
 
-## Your tasks will be the following:
-1. Run the assistants, examine the provided code, and understand what they do.
-2. Pick one assistant and generate a REST API that will allow the front end to communicate with it.
-3. Prepare a suitable UI for this assistant (something like the ChatGPT interface) and connect it to your API.
-4. Make it easily shareable and demonstrable with the team (e.g., create a Dockerfile with instructions so that we can run it inside a container, deploy it to some free hosting, or make a standalone app).
+## Technologies Used
 
-## Extra Tasks:
-1. Try to do the same with the other assistant.
-2. Create a UI where you can switch between the two assistants (again, similar to the ChatGPT interface).
-3. Feel free to go creative and introduce some extra features that you think might make sense (e.g., "login page," feedback, file upload).
+- **OpenAI API**
+- **React with Vite**
+- **TailwindCSS with DaisyUI**
+- **react-icons**
+- **react-markdown**
+- **react-syntax-highlighter**
+- **FastAPI**
 
-## Other Comments:
-1. You don't have any time restrictions, but please keep track of how much time you've spent on the task to share with us. We will schedule a call with you about a week after this task was shared.
-2. Don't stress about any part of the task—if something doesn't work as you intended, just leave it as is :)
-3. You will need to present your results to the team. Make it in a way that's comfortable for you: either a live walkthrough or a PowerPoint presentation.
-4. But, share the results with us beforehand, so we can try it out before the call.
-5. You can fork from this repo or work in a branch, whatever you prefere.
+## Installation
 
-## Good luck!
+### Prerequisites
+
+- Docker
+- Docker Compose
+- Python
+- Node.js (minimum version 18)
+
+### Running with Docker
+
+1. Clone the repository:
+
+    ```sh
+    git clone <repository-url>
+    cd <repository-folder>
+    ```
+
+2. Add your `OPENAI_API_KEY` to the `.env` file inside the `backend` folder:
+
+    ```sh
+    echo "OPENAI_API_KEY=your_openai_api_key" > backend/.env
+    ```
+
+3. Run Docker Compose to set up the project:
+
+    ```sh
+    docker compose up
+    ```
+
+    This will start the backend server on port `8000` and the frontend on port `5173`.
+
+### Running Locally
+
+To run this application locally, ensure you have Python installed. Follow these steps:
+
+#### Backend
+
+1. Install dependencies:
+
+    ```sh
+    pip install fastapi uvicorn openai
+    ```
+
+2. Run the application:
+
+    ```sh
+    uvicorn main:app --host 0.0.0.0 --port 8000
+    ```
+
+    The app will be accessible at [http://127.0.0.1:8000](http://127.0.0.1:8000).
+
+#### Frontend
+
+1. Ensure you have Node.js installed (minimum version 18).
+
+2. Install dependencies:
+
+    ```sh
+    npm i
+    ```
+
+3. Run the development server:
+
+    ```sh
+    npm run dev
+    ```
+
+    The frontend will be accessible at [http://localhost:5173](http://localhost:5173).
+
+## Future Enhancements
+
+- Integrate the GPT-4 model.
+- Add an image generation feature.
+- Implement a fully dynamic backend.
