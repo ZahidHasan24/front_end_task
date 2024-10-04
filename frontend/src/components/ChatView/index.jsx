@@ -84,8 +84,8 @@ const ChatView = () => {
             : updateMessage(res.response, true, id);
           res && !params?.id && navigate(`/${id}`, { state: { aiAssitant } });
         }
-      } catch (err) {
-        console.log(err);
+      } catch (error) {
+        console.log(error);
         Toast.error("There is some problem occurred. Please try again later");
       }
 
